@@ -105,10 +105,6 @@ primary_exchange: binance
 
 ### Quick Start
 ```bash
-# Clone repository
-git clone <repository-url>
-cd trading_system
-
 # Create virtual environment
 python -m venv venv
 source venv/bin/activate # Unix/macOS
