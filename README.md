@@ -116,7 +116,7 @@ Copyright (c) 2024
 **All Rights Reserved**
 
 For licensing inquiries:
-- Email: contact@example.com
+- Email: contact@lucaskemper.com
 
 ---
 **Note**: This system is under active development. Features and documentation are updated frequently.
