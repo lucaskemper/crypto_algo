@@ -31,13 +31,19 @@ This framework provides a comprehensive solution for cryptocurrency trading by c
 ## 🏗️ Architecture
 
 graph TD
-    A[Market Data] --> B[Data Processor]
-    B --> C[GARCH Analysis]
-    B --> D[Regime Detection]
-    C --> E[Risk Manager]
-    D --> E
+    A[Market Data] --> B[Data Pipeline]
+    B --> C[Feature Engineering]
+    C --> D[Risk Engine]
+    D --> E[Portfolio Optimizer]
     E --> F[Signal Generator]
     F --> G[Execution Engine]
-    H[Whale Activity] --> F
-    I[Market Sentiment] --> F
-    J[Order Flow] --> B
+    
+    H[GARCH Analysis] --> D
+    I[Regime Detection] --> D
+    
+    J[Whale Activity] --> B
+    K[Market Sentiment] --> B
+    L[Order Flow] --> B
+    
+    M[Risk Analytics] --> N[Performance Dashboard]
+    G --> M
