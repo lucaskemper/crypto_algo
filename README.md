@@ -1,4 +1,5 @@
-# Crypto Trading System - Advanced Market Analysis Framework
+# 🚀 Cryptocurrency Trading System (Alpha Version)
+
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-Commercial-red.svg)](LICENSE)
 [![GARCH](https://img.shields.io/badge/GARCH-Enabled-green.svg)](src/analysis/garch.py)
@@ -6,29 +7,7 @@
 
 A sophisticated cryptocurrency trading system combining advanced volatility modeling, regime detection, and smart order execution. Built for 24/7 markets with specific adaptations for cryptocurrency dynamics.
 
-## 🚀 Overview
-
-This framework provides a comprehensive solution for cryptocurrency trading by combining state-of-the-art quantitative methods:
-
-- **🤖 Advanced Analytics**: 
-  - Crypto-adapted GARCH modeling
-  - Dynamic regime detection
-  - Multi-factor signal generation
-  - Real-time market state analysis
-
-- **⚡ Risk Management**: 
-  - Volatility-based position sizing
-  - Dynamic risk thresholds
-  - Regime-aware exposure control
-  - Extreme event handling
-
-- **📊 Market Microstructure**:
-  - 24/7 market adaptations
-  - Liquidity analysis
-  - Volume profile analysis
-  - Whale activity monitoring
-
-## 🏗️ Architecture
+## 🏗️ System Architecture
 
 ```mermaid
 graph TD
@@ -38,101 +17,193 @@ graph TD
     D --> E[Portfolio Optimizer]
     E --> F[Signal Generator]
     F --> G[Execution Engine]
-    
     H[GARCH Analysis] --> D
     I[Regime Detection] --> D
-    
     J[Whale Activity] --> B
     K[Market Sentiment] --> B
     L[Order Flow] --> B
-    
     M[Risk Analytics] --> N[Performance Dashboard]
     G --> M
 ```
 
-## 🔧 Core Components
+## Core Components
 
-### 1. Crypto-Adapted GARCH
+### 1. Data Pipeline
+Advanced data processing pipeline for crypto markets:
+```python
+from datetime import datetime, timedelta
+import yfinance as yf
+import pandas as pd
+from typing import Dict, Optional
 
-### 2. Dynamic Regime Detection
+class CryptoDataPipeline:
+    def __init__(self, config: Optional[PipelineConfig] = None):
+        self.config = config or PipelineConfig()
+        self.processor = DataProcessor(self.config.processor_config)
+        self.data: Dict[str, pd.DataFrame] = {}
+```
 
-### 3. Signal Generation
+### 2. GARCH Analysis
+Crypto-adapted GARCH modeling with regime awareness:
+```python
+@dataclass
+class CryptoGARCHConfig:
+    p: int = 1
+    q: int = 1
+    dist: str = 'skewt'
+    vol_targeting: bool = True
+    target_vol: float = 0.50
+    mean_model: str = 'Zero'
+    vol_model: str = 'EGARCH'
+    power: float = 2.0
+```
 
+### 3. Risk Management
+Advanced risk controls with multi-factor analysis:
+```python
+class RiskManager:
+    def check_trade(self, symbol: str, size: float, price: float, 
+                   market_data: pd.DataFrame) -> Tuple[bool, Dict]:
+        checks = {
+            'size_check': self._check_position_size(size),
+            'var_check': self._check_portfolio_var(symbol, size, market_data),
+            'liquidity_check': self._check_liquidity(symbol, size, market_data),
+            'concentration_check': self._check_concentration(symbol, size),
+            'drawdown_check': self._check_drawdown()
+        }
+        return all(checks.values()), checks
+```
 
-## 📈 Key Features
+## Configuration
 
-### Volatility Analysis
-- EGARCH modeling for asymmetric volatility
-- Adaptive outlier detection
-- Regime-specific volatility forecasting
-- Extreme event handling
+### Trading Configuration
+```yaml
+# Trading pairs configuration
+symbols:
+  - BTC-USD
+  - ETH-USD
 
-### Risk Management
-- Dynamic position sizing
-- Regime-based exposure limits
-- Volatility-adjusted stop losses
-- Portfolio concentration limits
+# Timeframe settings
+timeframes:
+  - 1h
+  - 4h
 
-### Market Analysis
-- Multi-timeframe analysis
-- Volume profile integration
-- Whale activity monitoring
-- Market sentiment analysis
+# Risk management parameters
+max_position_size: 0.02
+max_drawdown: 0.15
+stop_loss: 0.02
 
-## 📦 Installation
+# Exchange settings
+primary_exchange: binance
+```
+
+## Installation
+
+### Prerequisites
+- Python 3.8+
+- pip (Python package installer)
+
+### Quick Start
 ```bash
+# Clone repository
+git clone <repository-url>
+cd trading_system
+
 # Create virtual environment
 python -m venv venv
-
-# Activate environment
-source venv/bin/activate  # Unix/macOS
-.\venv\Scripts\activate  # Windows
+source venv/bin/activate # Unix/macOS
+.\venv\Scripts\activate # Windows
 
 # Install dependencies
 pip install -r requirements.txt
 ```
-### Prerequisites
-- Python 3.8+
-- Virtual environment (recommended)
-## 🤝 Contributing (only for authorised users)
 
-### Development Workflow
-1. Fork the repository
-2. Create a feature branch
-3. Install development dependencies
-4. Run tests and linting
-5. Submit pull request
+### Development Setup
+```bash
+pip install -e ".[dev]"
+```
 
-### Code Standards
-- Follow PEP 8 guidelines
-- Include comprehensive docstrings
-- Add unit tests for new features
-- Use type hints consistently
+### Dependencies
 
-## 🔬 Mathematical Foundation
+Core Dependencies:
+- numpy>=1.20.0
+- pandas>=1.3.0
+- scipy>=1.7.0
+- scikit-learn>=1.0.0
+- matplotlib>=3.4.0
+- seaborn>=0.11.0
+- python-binance>=1.0.0
+- arch>=4.19.0
+- statsmodels>=0.13.0
+- plotly>=5.0.0
+- dash>=2.0.0
 
-### GARCH Volatility
-$$\sigma_t^2 = \omega + \alpha\epsilon_{t-1}^2 + \beta\sigma_{t-1}^2$$
+Development Tools:
+- pytest>=7.0.0
+- pytest-asyncio>=0.18.0
+- pytest-mock>=3.7.0
+- black>=22.0.0
+- flake8>=4.0.0
+- mypy>=0.800
 
-### Regime Detection
-$$P(S_t = j|S_{t-1} = i) = p_{ij}$$
+## Testing Infrastructure
 
-### Signal Generation
-$$Signal = w_1f_{trend} + w_2f_{vol} + w_3f_{sent}$$
+### Performance Testing
+```python
+def test_garch_performance(test_data):
+    config = CryptoGARCHConfig(
+        rescale=True,
+        scale_factor=100.0,
+        forecast_horizon=1,
+        simulation_draws=1000
+    )
+    model = CryptoGARCHModel(config)
+    results = run_performance_test(run_garch, test_data)
+    assert results['execution_time'] < 5.0
+    assert results['memory_used'] < 1024 * 1024 * 100
+```
 
-## 📚 References
+### Real Market Data Testing
+```python
+@pytest.fixture(scope="session")
+def real_crypto_data():
+    pairs = ['BTC-USD', 'ETH-USD', 'SOL-USD', 'DOGE-USD']
+    end_date = datetime.now()
+    start_date = end_date - timedelta(days=30)
+    # Implementation details in tests/test_real_data.py
+```
 
-### Academic Literature
+## Monitoring Dashboard
+Real-time system monitoring with Dash:
+```python
+class TradingDashboard:
+    def __init__(self, portfolio_manager, risk_manager, execution_router):
+        self.app = dash.Dash(__name__)
+        self.portfolio = portfolio_manager
+        self.risk = risk_manager
+        self.execution = execution_router
+```
 
-
-### Resources
-
+## Project Structure
+```
+src/
+├── analysis/
+│   ├── garch.py    # GARCH modeling
+│   └── regime.py   # Market regime detection
+├── data/
+│   └── pipeline.py # Data processing pipeline
+├── risk/
+│   └── manager.py  # Risk management system
+├── monitoring/
+│   └── dashboard.py # Real-time monitoring
+└── utils/
+    └── benchmark_utils.py # Performance testing
+```
 
 ## 📄 License
 
 Commercial Software License
-Copyright (c) 2024
-
+Copyright © 2024 Lucas Kemper
 **All Rights Reserved**
 
 For licensing inquiries:
