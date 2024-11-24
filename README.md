@@ -49,3 +49,74 @@ graph TD
     M[Risk Analytics] --> N[Performance Dashboard]
     G --> M
 ```
+
+## 🔧 Core Components
+
+### 1. Crypto-Adapted GARCH
+
+### 2. Dynamic Regime Detection
+
+### 3. Signal Generation
+
+
+## 📈 Key Features
+
+### Volatility Analysis
+- EGARCH modeling for asymmetric volatility
+- Adaptive outlier detection
+- Regime-specific volatility forecasting
+- Extreme event handling
+
+### Risk Management
+- Dynamic position sizing
+- Regime-based exposure limits
+- Volatility-adjusted stop losses
+- Portfolio concentration limits
+
+### Market Analysis
+- Multi-timeframe analysis
+- Volume profile integration
+- Whale activity monitoring
+- Market sentiment analysis
+
+## 📦 Installation
+
+### Prerequisites
+- Python 3.8+
+- Virtual environment (recommended)
+
+
+## 🔬 Mathematical Foundation
+
+### GARCH Volatility
+$$\sigma_t^2 = \omega + \alpha\epsilon_{t-1}^2 + \beta\sigma_{t-1}^2$$
+
+### Regime Detection
+$$P(S_t = j|S_{t-1} = i) = p_{ij}$$
+
+### Signal Generation
+$$Signal = w_1f_{trend} + w_2f_{vol} + w_3f_{sent}$$
+
+## 📚 References
+
+### Academic Literature
+1. "Volatility in Cryptocurrency Markets" (2022)
+2. "Regime Detection in 24/7 Markets" (2023)
+3. "GARCH Applications in Crypto" (2023)
+
+### Resources
+1. "Advances in Crypto Trading" by Satoshi Capital
+2. "Digital Asset Trading" by CryptoQuant
+
+## 📄 License
+
+Commercial Software License
+Copyright (c) 2024
+
+**All Rights Reserved**
+
+For licensing inquiries:
+- Email: contact@example.com
+
+---
+**Note**: This system is under active development. Features and documentation are updated frequently.
