@@ -80,11 +80,34 @@ graph TD
 - Market sentiment analysis
 
 ## 📦 Installation
+```bash
+# Create virtual environment
+python -m venv venv
 
+# Activate environment
+source venv/bin/activate  # Unix/macOS
+.\venv\Scripts\activate  # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+```
 ### Prerequisites
 - Python 3.8+
 - Virtual environment (recommended)
+## 🤝 Contributing (only for authorised users)
 
+### Development Workflow
+1. Fork the repository
+2. Create a feature branch
+3. Install development dependencies
+4. Run tests and linting
+5. Submit pull request
+
+### Code Standards
+- Follow PEP 8 guidelines
+- Include comprehensive docstrings
+- Add unit tests for new features
+- Use type hints consistently
 
 ## 🔬 Mathematical Foundation
 
