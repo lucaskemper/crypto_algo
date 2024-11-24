@@ -123,13 +123,10 @@ $$Signal = w_1f_{trend} + w_2f_{vol} + w_3f_{sent}$$
 ## 📚 References
 
 ### Academic Literature
-1. "Volatility in Cryptocurrency Markets" (2022)
-2. "Regime Detection in 24/7 Markets" (2023)
-3. "GARCH Applications in Crypto" (2023)
+
 
 ### Resources
-1. "Advances in Crypto Trading" by Satoshi Capital
-2. "Digital Asset Trading" by CryptoQuant
+
 
 ## 📄 License
 
