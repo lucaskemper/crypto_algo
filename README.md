@@ -30,6 +30,7 @@ This framework provides a comprehensive solution for cryptocurrency trading by c
 
 ## 🏗️ Architecture
 
+```mermaid
 graph TD
     A[Market Data] --> B[Data Pipeline]
     B --> C[Feature Engineering]
@@ -47,3 +48,4 @@ graph TD
     
     M[Risk Analytics] --> N[Performance Dashboard]
     G --> M
+```
