@@ -2,8 +2,6 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-Commercial-red.svg)](LICENSE)
-[![GARCH](https://img.shields.io/badge/GARCH-Enabled-green.svg)](src/analysis/garch.py)
-[![Market Regimes](https://img.shields.io/badge/Market%20Regimes-Dynamic-orange.svg)](src/analysis/regime.py)
 
 A sophisticated cryptocurrency trading system combining advanced volatility modeling, regime detection, and smart order execution. Built for 24/7 markets with specific adaptations for cryptocurrency dynamics.
 
