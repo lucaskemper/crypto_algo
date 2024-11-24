@@ -30,15 +30,14 @@ This framework provides a comprehensive solution for cryptocurrency trading by c
 
 ## 🏗️ Architecture
 
-mermaid
 graph TD
-A[Market Data] --> B[Data Processor]
-B --> C[GARCH Analysis]
-B --> D[Regime Detection]
-C --> E[Risk Manager]
-D --> E
-E --> F[Signal Generator]
-F --> G[Execution Engine]
-H[Whale Activity] --> F
-I[Market Sentiment] --> F
-J[Order Flow] --> B
+    A[Market Data] --> B[Data Processor]
+    B --> C[GARCH Analysis]
+    B --> D[Regime Detection]
+    C --> E[Risk Manager]
+    D --> E
+    E --> F[Signal Generator]
+    F --> G[Execution Engine]
+    H[Whale Activity] --> F
+    I[Market Sentiment] --> F
+    J[Order Flow] --> B
