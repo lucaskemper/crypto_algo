@@ -97,10 +97,25 @@ primary_exchange: binance
 
 ## Installation
 
-### Prerequisites
-- Python 3.8+
-- pip (Python package installer)
+### Installation
 
+```bash
+# Clone repository
+git clone <repository-url>
+cd trading-bot
+
+# Set up virtual environment
+python3.12 -m venv venv # Python 3.12 specificly otherwise issues with dependencies
+source venv/bin/activate  # Unix
+.\venv\Scripts\activate  # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your configuration
+```
 ### Quick Start
 ```bash
 # Create virtual environment
